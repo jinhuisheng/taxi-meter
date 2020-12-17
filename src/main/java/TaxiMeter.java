@@ -3,8 +3,8 @@ import java.math.BigDecimal;
 import static java.math.BigDecimal.*;
 
 public class TaxiMeter {
-    public static final int STARTING_PRICE = 6;
-    public static final int STARTING_PRICE_MILES = 2;
+    private static final int STARTING_PRICE = 6;
+    private static final int STARTING_PRICE_MILES = 2;
     private final int miles;
     private final int minutes;
 
