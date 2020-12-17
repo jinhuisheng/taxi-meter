@@ -16,7 +16,7 @@ public class TaxiMeter {
         if (miles <= STARTING_PRICE_MILES) {
             return STARTING_PRICE;
         }
-        BigDecimal totalPrice = BigDecimal.valueOf(6).add(addPricePerMiles(miles - 2));
+        BigDecimal totalPrice = BigDecimal.valueOf(STARTING_PRICE).add(addPricePerMiles(miles - STARTING_PRICE_MILES));
         return toInteger(totalPrice);
     }
 
