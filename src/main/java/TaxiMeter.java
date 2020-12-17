@@ -20,6 +20,9 @@ public class TaxiMeter {
 
     private Integer toInteger(BigDecimal totalPrice) {
         BigDecimal decimialMiles = totalPrice.subtract(BigDecimal.valueOf(totalPrice.intValue()));
+        if (decimialMiles.compareTo(BigDecimal.valueOf(0.5d)) > 0) {
+
+        }
         return 7;
     }
 
