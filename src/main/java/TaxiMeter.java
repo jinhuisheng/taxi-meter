@@ -19,7 +19,8 @@ public class TaxiMeter {
     }
 
     private Integer toInteger(BigDecimal totalPrice) {
-        return BigDecimal.valueOf(7).intValue();
+        BigDecimal decimialMiles = totalPrice.subtract(BigDecimal.valueOf(totalPrice.intValue()));
+        return 7;
     }
 
     private BigDecimal addPricePerMiles(int miles) {
