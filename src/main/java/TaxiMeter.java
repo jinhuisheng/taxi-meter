@@ -23,17 +23,17 @@ public class TaxiMeter {
     }
 
     private void calculateWaitingMinutesPrice() {
-        addPrice(waitingPrice());
+        add(waitingPrice());
     }
 
     private void calculateMilesPrice() {
-        addPrice(startingPrice());
+        add(startingPrice());
         if (miles <= STARTING_PRICE_MILES) {
             return;
         }
-        addPrice(pricePerMiles());
+        add(pricePerMiles());
         if (miles > EIGHT_MILES) {
-            addPrice(longDistancePrice());
+            add(longDistancePrice());
         }
     }
 
@@ -45,7 +45,7 @@ public class TaxiMeter {
         return valueOf(minutes).multiply(valueOf(0.25d));
     }
 
-    private void addPrice(BigDecimal bigDecimal) {
+    private void add(BigDecimal bigDecimal) {
         totalPrice = totalPrice.add(bigDecimal);
     }
 
