@@ -21,5 +21,11 @@ public class TaxiMeterTest {
         assertThat(taxiMeter.calculate()).isEqualTo(13);
     }
 
+    @Test
+    void should_calculate_price_be_7_given_2_miles_and_3_minute() {
+        TaxiMeter taxiMeter = new TaxiMeter(2, 3);
+        assertThat(taxiMeter.calculate()).isEqualTo(7);
+    }
+
 
 }
