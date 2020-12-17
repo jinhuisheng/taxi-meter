@@ -17,13 +17,15 @@ public class TaxiMeter {
     }
 
     public Integer calculate() {
+        BigDecimal totalPrice = ZERO;
         if (minutes == 3) {
             return 7;
         }
         if (miles <= STARTING_PRICE_MILES) {
             return STARTING_PRICE;
         }
-        BigDecimal totalPrice = valueOf(STARTING_PRICE).add(addPricePerMiles(miles - STARTING_PRICE_MILES));
+        totalPrice = valueOf(STARTING_PRICE);
+        totalPrice = totalPrice.add(addPricePerMiles(miles - STARTING_PRICE_MILES));
         if (miles == TEN_MILES) {
             totalPrice = totalPrice.add(longDistancePrice(miles - EIGHT_MILES));
         }
