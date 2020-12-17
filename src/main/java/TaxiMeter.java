@@ -14,13 +14,12 @@ public class TaxiMeter {
         if (miles <= 2) {
             return 6;
         }
-        BigDecimal totalPrice = BigDecimal.valueOf(6).add(addPricePerMiles(miles-2));
+        BigDecimal totalPrice = BigDecimal.valueOf(6).add(addPricePerMiles(miles - 2));
         return toInteger(totalPrice);
     }
 
     private Integer toInteger(BigDecimal totalPrice) {
-        int round = smallNumerical(totalPrice);
-        return totalPrice.intValue() + round;
+        return totalPrice.intValue() + smallNumerical(totalPrice);
     }
 
     private int smallNumerical(BigDecimal totalPrice) {
