@@ -22,13 +22,12 @@ public class TaxiMeter {
             return 7;
         }
         addPrice(valueOf(STARTING_PRICE));
-        if (miles <= STARTING_PRICE_MILES) {
-            return STARTING_PRICE;
-        }
-        addPrice(addPricePerMiles(miles - STARTING_PRICE_MILES));
-        if (miles == TEN_MILES) {
-            System.out.println(totalPrice.toString());
-            addPrice(longDistancePrice(miles - EIGHT_MILES));
+        if (miles > STARTING_PRICE_MILES) {
+            addPrice(addPricePerMiles(miles - STARTING_PRICE_MILES));
+            if (miles == TEN_MILES) {
+                System.out.println(totalPrice.toString());
+                addPrice(longDistancePrice(miles - EIGHT_MILES));
+            }
         }
         return toInteger(totalPrice);
     }
