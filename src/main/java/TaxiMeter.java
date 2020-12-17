@@ -23,7 +23,7 @@ public class TaxiMeter {
     }
 
     private void calculateWaitingMinutesPrice() {
-        addPrice(waitingPrice(minutes));
+        addPrice(waitingPrice());
     }
 
     private void calculateMilesPrice() {
@@ -31,9 +31,9 @@ public class TaxiMeter {
         if (miles <= STARTING_PRICE_MILES) {
             return;
         }
-        addPrice(pricePerMiles(miles - STARTING_PRICE_MILES));
+        addPrice(pricePerMiles());
         if (miles > EIGHT_MILES) {
-            addPrice(longDistancePrice(miles - EIGHT_MILES));
+            addPrice(longDistancePrice());
         }
     }
 
@@ -41,7 +41,7 @@ public class TaxiMeter {
         return valueOf(STARTING_PRICE);
     }
 
-    private BigDecimal waitingPrice(int minutes) {
+    private BigDecimal waitingPrice() {
         return valueOf(minutes).multiply(valueOf(0.25d));
     }
 
@@ -49,13 +49,15 @@ public class TaxiMeter {
         totalPrice = totalPrice.add(bigDecimal);
     }
 
-    private BigDecimal longDistancePrice(int miles) {
-        return valueOf(miles).multiply(valueOf(0.5d));
+    private BigDecimal longDistancePrice() {
+        int beyondEightMiles = miles - EIGHT_MILES;
+        return valueOf(beyondEightMiles).multiply(valueOf(0.5d));
     }
 
-    private BigDecimal pricePerMiles(int miles) {
+    private BigDecimal pricePerMiles() {
         BigDecimal pricePerMiles = valueOf(0.8);
-        return valueOf(miles).multiply(pricePerMiles);
+        int beyondTwoMiles = miles - STARTING_PRICE_MILES;
+        return valueOf(beyondTwoMiles).multiply(pricePerMiles);
     }
 
     private Integer toInteger() {
