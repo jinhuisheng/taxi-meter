@@ -8,4 +8,11 @@ public class TaxiMeterTest {
         TaxiMeter taxiMeter = new TaxiMeter(1,0);
         assertThat(taxiMeter.calculate()).isEqualTo(6);
     }
+
+    @Test
+    void should_calculate_price_be_7_given_3_miles_and_0_minute() {
+        TaxiMeter taxiMeter = new TaxiMeter(3,0);
+        assertThat(taxiMeter.calculate()).isEqualTo(7);
+    }
+
 }
