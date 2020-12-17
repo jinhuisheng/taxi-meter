@@ -12,6 +12,6 @@ public class TaxiMeter {
         if (miles <= 2) {
             return 6;
         }
-        return 7;
+        return 6 + 1;
     }
 }
