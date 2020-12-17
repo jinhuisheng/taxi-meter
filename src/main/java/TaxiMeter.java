@@ -27,10 +27,10 @@ public class TaxiMeter {
     private int smallNumerical(BigDecimal totalPrice) {
         BigDecimal integerPrice = BigDecimal.valueOf(totalPrice.intValue());
         BigDecimal decimalPrice = totalPrice.subtract(integerPrice);
-        return round(decimalPrice);
+        return mod(decimalPrice);
     }
 
-    private int round(BigDecimal decimialMiles) {
+    private int mod(BigDecimal decimialMiles) {
         return decimialMiles.compareTo(BigDecimal.valueOf(0.5d)) > 0 ? 1 : 0;
     }
 
