@@ -19,7 +19,7 @@ public class TaxiMeter {
     public Integer calculate() {
         calculateMilesPrice();
         calculateWaitingMinutesPrice();
-        return toInteger(totalPrice);
+        return toInteger();
     }
 
     private void calculateWaitingMinutesPrice() {
@@ -58,7 +58,7 @@ public class TaxiMeter {
         return valueOf(miles).multiply(pricePerMiles);
     }
 
-    private Integer toInteger(BigDecimal totalPrice) {
+    private Integer toInteger() {
         return totalPrice.intValue() + smallNumerical(totalPrice);
     }
 
