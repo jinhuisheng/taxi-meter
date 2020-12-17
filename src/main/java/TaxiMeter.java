@@ -29,12 +29,12 @@ public class TaxiMeter {
 
     private void calculateMilesPrice() {
         addPrice(valueOf(STARTING_PRICE));
-        if (miles > STARTING_PRICE_MILES) {
-            addPrice(pricePerMiles(miles - STARTING_PRICE_MILES));
-            if (miles == TEN_MILES) {
-                System.out.println(totalPrice.toString());
-                addPrice(longDistancePrice(miles - EIGHT_MILES));
-            }
+        if (miles <= STARTING_PRICE_MILES) {
+            return;
+        }
+        addPrice(pricePerMiles(miles - STARTING_PRICE_MILES));
+        if (miles > EIGHT_MILES) {
+            addPrice(longDistancePrice(miles - EIGHT_MILES));
         }
     }
 
