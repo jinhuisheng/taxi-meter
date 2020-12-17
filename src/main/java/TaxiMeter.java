@@ -20,7 +20,7 @@ public class TaxiMeter {
     public Integer calculate() {
         addPrice(valueOf(STARTING_PRICE));
         if (miles > STARTING_PRICE_MILES) {
-            addPrice(addPricePerMiles(miles - STARTING_PRICE_MILES));
+            addPrice(pricePerMiles(miles - STARTING_PRICE_MILES));
             if (miles == TEN_MILES) {
                 System.out.println(totalPrice.toString());
                 addPrice(longDistancePrice(miles - EIGHT_MILES));
@@ -40,7 +40,7 @@ public class TaxiMeter {
         return valueOf(miles).multiply(valueOf(0.5d));
     }
 
-    private BigDecimal addPricePerMiles(int miles) {
+    private BigDecimal pricePerMiles(int miles) {
         BigDecimal pricePerMiles = valueOf(0.8);
         return valueOf(miles).multiply(pricePerMiles);
     }
