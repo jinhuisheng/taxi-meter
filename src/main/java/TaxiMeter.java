@@ -9,15 +9,15 @@ public class TaxiMeter {
     private static final int EIGHT_MILES = 8;
     private final int miles;
     private final int minutes;
+    private BigDecimal totalPrice;
 
     public TaxiMeter(int miles, int minutes) {
-
+        totalPrice = ZERO;
         this.miles = miles;
         this.minutes = minutes;
     }
 
     public Integer calculate() {
-        BigDecimal totalPrice = ZERO;
         if (minutes == 3) {
             return 7;
         }
