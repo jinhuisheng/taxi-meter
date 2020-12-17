@@ -26,9 +26,7 @@ public class TaxiMeter {
                 addPrice(longDistancePrice(miles - EIGHT_MILES));
             }
         }
-        if (minutes == 3) {
-            addPrice(waitingPrice(minutes));
-        }
+        addPrice(waitingPrice(minutes));
         return toInteger(totalPrice);
     }
 
