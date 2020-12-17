@@ -29,11 +29,7 @@ public class TaxiMeter {
     }
 
     private int round(BigDecimal decimialMiles) {
-        int de = 0;
-        if (decimialMiles.compareTo(BigDecimal.valueOf(0.5d)) > 0) {
-            de = 1;
-        }
-        return de;
+        return decimialMiles.compareTo(BigDecimal.valueOf(0.5d)) > 0 ? 1 : 0;
     }
 
     private BigDecimal addPricePerMiles(int miles) {
