@@ -30,8 +30,8 @@ public class TaxiMeter {
         return mod(decimalPrice);
     }
 
-    private int mod(BigDecimal decimialMiles) {
-        return decimialMiles.compareTo(BigDecimal.valueOf(0.5d)) > 0 ? 1 : 0;
+    private int mod(BigDecimal decimalPrice) {
+        return decimalPrice.compareTo(BigDecimal.valueOf(0.5d)) > 0 ? 1 : 0;
     }
 
     private BigDecimal addPricePerMiles(int miles) {
