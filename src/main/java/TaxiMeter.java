@@ -27,9 +27,13 @@ public class TaxiMeter {
             }
         }
         if (minutes == 3) {
-            return 7;
+            addPrice(waitingPrice(minutes));
         }
         return toInteger(totalPrice);
+    }
+
+    private BigDecimal waitingPrice(int minutes) {
+        return valueOf(minutes).multiply(valueOf(0.25d));
     }
 
     private void addPrice(BigDecimal bigDecimal) {
