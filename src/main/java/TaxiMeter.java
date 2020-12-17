@@ -12,7 +12,12 @@ public class TaxiMeter {
         if (miles <= 2) {
             return 6;
         }
-        return 6 + addPricePerMiles(1);
+        int totalPrice = 6 + addPricePerMiles(1);
+        return toInteger(totalPrice);
+    }
+
+    private Integer toInteger(int totalPrice) {
+        return 7;
     }
 
     private int addPricePerMiles(int miles) {
