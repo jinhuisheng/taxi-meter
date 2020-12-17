@@ -1,5 +1,7 @@
 import java.math.BigDecimal;
 
+import static java.math.BigDecimal.*;
+
 public class TaxiMeter {
     public static final int STARTING_PRICE = 6;
     public static final int STARTING_PRICE_MILES = 2;
@@ -16,8 +18,13 @@ public class TaxiMeter {
         if (miles <= STARTING_PRICE_MILES) {
             return STARTING_PRICE;
         }
-        BigDecimal totalPrice = BigDecimal.valueOf(STARTING_PRICE).add(addPricePerMiles(miles - STARTING_PRICE_MILES));
+        BigDecimal totalPrice = valueOf(STARTING_PRICE).add(addPricePerMiles(miles - STARTING_PRICE_MILES));
         return toInteger(totalPrice);
+    }
+
+    private BigDecimal addPricePerMiles(int miles) {
+        BigDecimal pricePerMiles = valueOf(0.8);
+        return valueOf(miles).multiply(pricePerMiles);
     }
 
     private Integer toInteger(BigDecimal totalPrice) {
@@ -25,17 +32,12 @@ public class TaxiMeter {
     }
 
     private int smallNumerical(BigDecimal totalPrice) {
-        BigDecimal integerPrice = BigDecimal.valueOf(totalPrice.intValue());
+        BigDecimal integerPrice = valueOf(totalPrice.intValue());
         BigDecimal decimalPrice = totalPrice.subtract(integerPrice);
         return mod(decimalPrice);
     }
 
     private int mod(BigDecimal decimalPrice) {
-        return decimalPrice.compareTo(BigDecimal.valueOf(0.5d)) > 0 ? 1 : 0;
-    }
-
-    private BigDecimal addPricePerMiles(int miles) {
-        BigDecimal pricePerMiles = BigDecimal.valueOf(0.8);
-        return BigDecimal.valueOf(miles).multiply(pricePerMiles);
+        return decimalPrice.compareTo(valueOf(0.5d)) > 0 ? 1 : 0;
     }
 }
