@@ -27,6 +27,7 @@ public class TaxiMeter {
         }
         addPrice(addPricePerMiles(miles - STARTING_PRICE_MILES));
         if (miles == TEN_MILES) {
+            System.out.println(totalPrice.toString());
             addPrice(longDistancePrice(miles - EIGHT_MILES));
         }
         return toInteger(totalPrice);
