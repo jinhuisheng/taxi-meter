@@ -22,7 +22,7 @@ public class TaxiMeter {
         BigDecimal subtrahend = BigDecimal.valueOf(totalPrice.intValue());
         BigDecimal decimialMiles = totalPrice.subtract(subtrahend);
         int round = round(decimialMiles);
-        return 7;
+        return totalPrice.intValue() + round;
     }
 
     private int round(BigDecimal decimialMiles) {
