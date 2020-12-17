@@ -21,15 +21,19 @@ public class TaxiMeter {
         if (minutes == 3) {
             return 7;
         }
+        addPrice(valueOf(STARTING_PRICE));
         if (miles <= STARTING_PRICE_MILES) {
             return STARTING_PRICE;
         }
-        totalPrice = valueOf(STARTING_PRICE);
-        totalPrice = totalPrice.add(addPricePerMiles(miles - STARTING_PRICE_MILES));
+        addPrice(addPricePerMiles(miles - STARTING_PRICE_MILES));
         if (miles == TEN_MILES) {
-            totalPrice = totalPrice.add(longDistancePrice(miles - EIGHT_MILES));
+            addPrice(longDistancePrice(miles - EIGHT_MILES));
         }
         return toInteger(totalPrice);
+    }
+
+    private void addPrice(BigDecimal bigDecimal) {
+        totalPrice = totalPrice.add(bigDecimal);
     }
 
     private BigDecimal longDistancePrice(int miles) {
