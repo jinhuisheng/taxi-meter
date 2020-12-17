@@ -5,6 +5,8 @@ import static java.math.BigDecimal.*;
 public class TaxiMeter {
     private static final int STARTING_PRICE = 6;
     private static final int STARTING_PRICE_MILES = 2;
+    public static final int TEN_MILES = 10;
+    public static final int EIGTHT_MILES = 8;
     private final int miles;
     private final int minutes;
 
@@ -19,8 +21,8 @@ public class TaxiMeter {
             return STARTING_PRICE;
         }
         BigDecimal totalPrice = valueOf(STARTING_PRICE).add(addPricePerMiles(miles - STARTING_PRICE_MILES));
-        if (miles == 10) {
-            totalPrice = totalPrice.add(longDistancePrice(miles - 8));
+        if (miles == TEN_MILES) {
+            totalPrice = totalPrice.add(longDistancePrice(miles - EIGTHT_MILES));
         }
         return toInteger(totalPrice);
     }
