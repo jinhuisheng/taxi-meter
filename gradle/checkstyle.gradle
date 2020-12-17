@@ -1,0 +1,9 @@
+checkstyle {
+    toolVersion '8.27'
+    checkstyleTest.enabled = false
+    configFile = rootProject.file("config/checkstyle/checkstyle.xml")
+    configProperties = [samedir: "${rootDir}/config/checkstyle"]
+}
+
+tasks.withType(Checkstyle) {
+}

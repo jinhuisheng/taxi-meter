@@ -1,0 +1,11 @@
+/**
+ * git hook 配置
+ * pre-push hook，用于在本地 push 代码到远程时，做一些事情
+ * commit-msg，用于统一commit日志格式
+ */
+copy {
+    from new File(rootProject.rootDir, 'config/githooks/')
+    into { new File(rootProject.rootDir, '.git/hooks') }
+    fileMode 0755
+    duplicatesStrategy = 'EXCLUDE'
+}
