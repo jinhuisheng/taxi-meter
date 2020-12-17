@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+
 public class TaxiMeter {
     private final int miles;
     private final int minutes;
@@ -12,15 +14,15 @@ public class TaxiMeter {
         if (miles <= 2) {
             return 6;
         }
-        int totalPrice = 6 + addPricePerMiles(1);
+        BigDecimal totalPrice = BigDecimal.valueOf(6).add(addPricePerMiles(1));
         return toInteger(totalPrice);
     }
 
-    private Integer toInteger(int totalPrice) {
+    private Integer toInteger(BigDecimal totalPrice) {
         return 7;
     }
 
-    private int addPricePerMiles(int miles) {
-        return 1;
+    private BigDecimal addPricePerMiles(int miles) {
+        return BigDecimal.valueOf(1);
     }
 }
