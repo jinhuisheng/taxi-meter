@@ -1,0 +1,54 @@
+#!/bin/bash
+# THE BEER-WARE LICENSE:
+# <leokewitz@gmail.com> wrote this file. As long as you retain this notice you
+# can do whatever you want with this stuff. If we meet some day, and you think
+# this stuff is worth it, you can buy me a beer in return.
+# Leonardo Kewitz
+
+# Color codes
+red='\033[0;31m'
+yellow='\033[0;33m'
+blue='\033[0;34m'
+NC='\033[0m' # No colors
+
+
+if ! [[ $(cat $1) =~ ^((chore|docs|feat|fix|merge|refactor|style|test|ci|revert)\(.+\):)|(Merge) ]]; then
+#  printf "${red}Please use semantic commit messages:\n"
+#  printf "${yellow}feat(scope): ${blue}add hat wobble\n"
+#  printf "${yellow}^--^${blue}  ^------------^ ]-> Summary in present tense.${yellow}\n"
+#  printf "|\n"
+#  printf "+---> Type: chore, docs, feat, fix, merge, refactor, style, test.\n${NC}"
+  printf "Please use semantic commit messages:\n"
+  printf "feat(scope|Merge): add hat wobble\n"
+  printf "^----------------^  ^------------^ ]-> Summary in present tense.\n"
+  printf "|\n"
+  printf "+---> Type: chore, docs, feat, fix, merge, refactor, style, test.\n"
+  printf "chore(scope): (updating grunt tasks etc; no production code change)\n"
+  printf "docs(scope): (changes to the documentation)\n"
+  printf "feat(scope): (new feature for the user, not a new feature for build script)\n"
+  printf "fix(scope): (bug fix for the user, not a fix to a build script)\n"
+  printf "merge(scope): (merge conflict)\n"
+  printf "refactor(scope): (refactoring production code, eg. renaming a variable)\n"
+  printf "style(scope): (formatting, missing semi colons, etc; no production code change)\n"
+  printf "test(scope): (adding missing tests, refactoring tests; no production code change)\n"
+  printf "ci(scope): (Update Jenkinsfile)\n"
+  printf "revert(scope): (revert xxx)\n"
+  exit 1
+fi
+
+while read line; do
+  # Skip comments
+  if [ "${line:0:1}" == "#" ]; then
+    continue
+  fi
+  if [ ${#line} -gt 72 ]; then
+#    echo -e "${yellow}Commit messages are limited to 72 characters.${NC}"
+#    echo -e "The following commit message has ${red}${#line}${NC} characters."
+    echo -e "Commit messages are limited to 72 characters."
+    echo -e "The following commit message has ${#line} characters."
+    echo "${line}"
+    exit 1
+  fi
+done < "${1}"
+
+exit 0

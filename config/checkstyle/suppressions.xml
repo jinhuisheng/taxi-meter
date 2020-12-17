@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE suppressions PUBLIC
+    "-//Puppy Crawl//DTD Suppressions 1.1//EN"
+    "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
+
+<suppressions>
+    <suppress checks="FileLength"
+              files="[\\/]org[\\/]ichei[\\/]iioe[\\/]course[\\/]application[\\/]CourseRepresentationService.java"/>
+    <suppress checks="FileLength"
+              files="[\\/]org[\\/]ichei[\\/]iioe[\\/]course[\\/]domain[\\/]course[\\/]Course.java"/>
+    <suppress checks="FileLength"
+              files="[\\/]org[\\/]ichei[\\/]iioe[\\/]course[\\/]resource[\\/]CourseResource.java"/>
+    <suppress checks="FileLength"
+              files="[\\/]org[\\/]ichei[\\/]iioe[\\/]network[\\/]EmailTemplate.java"/>
+    <suppress checks="FileLength"
+              files="[\\/]org[\\/]ichei[\\/]iioe[\\/]network[\\/]domain[\\/]Network.java"/>
+    <suppress checks="FileLength"
+              files="[\\/]org[\\/]ichei[\\/]iioe[\\/]news[\\/]domain[\\/]News.java"/>
+    <suppress checks="FileLength"
+              files="[\\/]org[\\/]ichei[\\/]iioe[\\/]user[\\/]domain[\\/]User.java"/>
+
+    <suppress checks="MethodLength"
+              files="[\\/]org[\\/]ichei[\\/]iioe[\\/]common[\\/]config[\\/]SecurityConfiguration.java"/>
+    <suppress checks="MethodLength"
+              files="[\\/]org[\\/]ichei[\\/]iioe[\\/]user[\\/]GetCurrentUserService.java"/>
+
+    <suppress checks="LineLength"
+              files="[\\/]org[\\/]ichei[\\/]iioe[\\/]common[\\/]config[\\/]SecurityConfiguration.java"/>
+</suppressions>
