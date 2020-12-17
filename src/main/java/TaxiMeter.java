@@ -19,10 +19,14 @@ public class TaxiMeter {
     }
 
     private Integer toInteger(BigDecimal totalPrice) {
+        int round = smallNumerical(totalPrice);
+        return totalPrice.intValue() + round;
+    }
+
+    private int smallNumerical(BigDecimal totalPrice) {
         BigDecimal subtrahend = BigDecimal.valueOf(totalPrice.intValue());
         BigDecimal decimialMiles = totalPrice.subtract(subtrahend);
-        int round = round(decimialMiles);
-        return totalPrice.intValue() + round;
+        return round(decimialMiles);
     }
 
     private int round(BigDecimal decimialMiles) {
