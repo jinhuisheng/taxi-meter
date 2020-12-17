@@ -20,9 +20,14 @@ public class TaxiMeter {
         }
         BigDecimal totalPrice = valueOf(STARTING_PRICE).add(addPricePerMiles(miles - STARTING_PRICE_MILES));
         if (miles == 10) {
+            totalPrice = totalPrice.add(longDistancePrice(miles - 8));
             return 13;
         }
         return toInteger(totalPrice);
+    }
+
+    private BigDecimal longDistancePrice(int i) {
+        return BigDecimal.valueOf(i);
     }
 
     private BigDecimal addPricePerMiles(int miles) {
