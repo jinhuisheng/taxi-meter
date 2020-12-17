@@ -18,6 +18,16 @@ public class TaxiMeter {
     }
 
     public Integer calculate() {
+        calculateMilesPrice();
+        calculateWaitingMinutesPrice();
+        return toInteger(totalPrice);
+    }
+
+    private void calculateWaitingMinutesPrice() {
+        addPrice(waitingPrice(minutes));
+    }
+
+    private void calculateMilesPrice() {
         addPrice(valueOf(STARTING_PRICE));
         if (miles > STARTING_PRICE_MILES) {
             addPrice(pricePerMiles(miles - STARTING_PRICE_MILES));
@@ -26,8 +36,6 @@ public class TaxiMeter {
                 addPrice(longDistancePrice(miles - EIGHT_MILES));
             }
         }
-        addPrice(waitingPrice(minutes));
-        return toInteger(totalPrice);
     }
 
     private BigDecimal waitingPrice(int minutes) {
