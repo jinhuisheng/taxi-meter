@@ -19,11 +19,18 @@ public class TaxiMeter {
     }
 
     private Integer toInteger(BigDecimal totalPrice) {
-        BigDecimal decimialMiles = totalPrice.subtract(BigDecimal.valueOf(totalPrice.intValue()));
-        if (decimialMiles.compareTo(BigDecimal.valueOf(0.5d)) > 0) {
-
-        }
+        BigDecimal subtrahend = BigDecimal.valueOf(totalPrice.intValue());
+        BigDecimal decimialMiles = totalPrice.subtract(subtrahend);
+        int round = round(decimialMiles);
         return 7;
+    }
+
+    private int round(BigDecimal decimialMiles) {
+        int de = 0;
+        if (decimialMiles.compareTo(BigDecimal.valueOf(0.5d)) > 0) {
+            de = 1;
+        }
+        return de;
     }
 
     private BigDecimal addPricePerMiles(int miles) {
