@@ -23,7 +23,7 @@ public class TaxiMeter {
     }
 
     private BigDecimal addPricePerMiles(int miles) {
-        double pricePerMiles = 0.8;
-        return BigDecimal.valueOf(1);
+        BigDecimal pricePerMiles = BigDecimal.valueOf(0.8);
+        return BigDecimal.valueOf(1).multiply(pricePerMiles);
     }
 }
