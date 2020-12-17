@@ -27,8 +27,8 @@ public class TaxiMeter {
         return toInteger(totalPrice);
     }
 
-    private BigDecimal longDistancePrice(int i) {
-        return BigDecimal.valueOf(i).multiply(BigDecimal.valueOf(0.5d));
+    private BigDecimal longDistancePrice(int miles) {
+        return BigDecimal.valueOf(miles).multiply(BigDecimal.valueOf(0.5d));
     }
 
     private BigDecimal addPricePerMiles(int miles) {
