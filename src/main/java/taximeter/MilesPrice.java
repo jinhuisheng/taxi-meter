@@ -1,3 +1,5 @@
+package taximeter;
+
 import java.math.BigDecimal;
 
 import static java.math.BigDecimal.valueOf;

@@ -1,3 +1,4 @@
+package taximeter;
 
 public class TaxiMeter {
     private final TotalPrice totalPrice;
