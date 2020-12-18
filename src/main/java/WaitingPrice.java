@@ -6,7 +6,6 @@ public class WaitingPrice {
     private TotalPrice totalPrice;
 
     public WaitingPrice(TotalPrice totalPrice) {
-
         this.totalPrice = totalPrice;
     }
 
