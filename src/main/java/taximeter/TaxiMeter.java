@@ -9,9 +9,6 @@ public class TaxiMeter {
 
     public Integer charge(int miles, int minutes) {
         float total = 0;
-        if (miles == 10) {
-            return 13;
-        }
         total += STARTING_PRICE;
         if (miles <= 2) {
             return round(total);
