@@ -1,6 +1,8 @@
 import java.math.BigDecimal;
 
-import static java.math.BigDecimal.*;
+import static java.math.BigDecimal.ZERO;
+import static java.math.BigDecimal.valueOf;
+
 
 public class TaxiMeter {
     private static final int STARTING_PRICE = 6;

@@ -1,0 +1,83 @@
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "0.8.5"
+}
+
+ext {
+    minimumCoverageRatio = 0.45
+}
+
+test {
+    useJUnitPlatform()
+
+    testLogging {
+        events 'FAILED', 'SKIPPED'
+    }
+    ignoreFailures false
+    reports.html.enabled = true
+}
+
+task testReport(type: TestReport) {
+    destinationDir = file("$buildDir/reports/tests")
+    reportOn test
+}
+
+jacocoTestReport {
+    executionData tasks.withType(Test)
+
+    reports {
+        xml.enabled = false
+    }
+}
+
+jacocoTestCoverageVerification {
+    executionData tasks.withType(Test)
+    violationRules {
+        rule {
+            limit {
+                minimum = minimumCoverageRatio
+            }
+
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.35
+            }
+            limit {
+                counter = 'BRANCH'
+                value = 'COVEREDRATIO'
+                minimum = 0.35
+            }
+            limit {
+                counter = 'METHOD'
+                value = 'COVEREDRATIO'
+                minimum = 0.35
+            }
+            limit {
+                counter = 'CLASS'
+                value = 'COVEREDRATIO'
+                minimum = 0.35
+            }
+        }
+    }
+}
+
+check.dependsOn jacocoTestCoverageVerification
+jacocoTestCoverageVerification.dependsOn jacocoTestReport
+
+
+
+configurations.all {
+    exclude group:"junit", module: "junit"
+    exclude group:"org.junit.vintage", module:"junit-vintage-engine"
+}
+
+dependencies {
+    // Use JUnit test framework
+    testImplementation 'org.assertj:assertj-core:3.6.2'
+    //mockito
+    testImplementation 'org.mockito:mockito-core:3.2.0'
+    //junit5
+    testImplementation('org.junit.jupiter:junit-jupiter:5.5.1')}
+

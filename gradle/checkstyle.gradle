@@ -1,3 +1,5 @@
+apply plugin: 'checkstyle'
+
 checkstyle {
     toolVersion '8.27'
     checkstyleTest.enabled = false
