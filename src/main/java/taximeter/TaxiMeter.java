@@ -15,7 +15,7 @@ public class TaxiMeter {
             total += extraMilesPrice;
         }
         if (miles == 10) {
-            total += longDistancePrice(2);
+            total += longDistancePrice(miles);
         }
         return round(total);
     }
