@@ -44,6 +44,10 @@ public class TaxiMeter {
     }
 
     private float longDistancePrice(int miles) {
-        return (miles - EIGHT_MILES) * LONG_DISTANCE_PRICE_PER_MILES;
+        if (miles - EIGHT_MILES > 0) {
+            return (miles - EIGHT_MILES) * LONG_DISTANCE_PRICE_PER_MILES;
+        } else {
+            return 0;
+        }
     }
 }
