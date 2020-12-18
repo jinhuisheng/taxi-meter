@@ -5,18 +5,18 @@ import java.math.BigDecimal;
 import static java.math.BigDecimal.valueOf;
 
 public class TotalPrice {
-    private BigDecimal totalPrice;
+    private BigDecimal price;
 
     public TotalPrice() {
-        this.totalPrice = BigDecimal.ZERO;
+        this.price = BigDecimal.ZERO;
     }
 
     public void add(BigDecimal bigDecimal) {
-        totalPrice = totalPrice.add(bigDecimal);
+        price = price.add(bigDecimal);
     }
 
     Integer toInteger() {
-        return totalPrice.intValue() + smallNumerical(totalPrice);
+        return price.intValue() + smallNumerical(price);
     }
 
     private int smallNumerical(BigDecimal totalPrice) {
