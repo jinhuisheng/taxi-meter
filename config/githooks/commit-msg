@@ -12,12 +12,7 @@ blue='\033[0;34m'
 NC='\033[0m' # No colors
 
 
-if ! [[ $(cat $1) =~ ^(chore|docs|feat|fix|merge|refactor|style|test|ci|revert:)|(Merge) ]]; then
-#  printf "${red}Please use semantic commit messages:\n"
-#  printf "${yellow}feat: ${blue}add hat wobble\n"
-#  printf "${yellow}^--^${blue}  ^------------^ ]-> Summary in present tense.${yellow}\n"
-#  printf "|\n"
-#  printf "+---> Type: chore, docs, feat, fix, merge, refactor, style, test.\n${NC}"
+if ! [[ $(cat $1) =~ ^(chore|docs|feat|fix|merge|refactor|style|test|ci|revert:)|(Merge)|(empty message) ]]; then
   printf "Please use semantic commit messages:\n"
   printf "feat: add hat wobble\n"
   printf "^----------------^  ^------------^ ]-> Summary in present tense.\n"
@@ -42,8 +37,6 @@ while read line; do
     continue
   fi
   if [ ${#line} -gt 72 ]; then
-#    echo -e "${yellow}Commit messages are limited to 72 characters.${NC}"
-#    echo -e "The following commit message has ${red}${#line}${NC} characters."
     echo -e "Commit messages are limited to 72 characters."
     echo -e "The following commit message has ${#line} characters."
     echo "${line}"
