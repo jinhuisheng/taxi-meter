@@ -22,7 +22,7 @@ public class TaxiMeter {
         total += startingPrice();
         total += extraMilesPrice(miles);
         if (miles > EIGHT_MILES) {
-            total += longDistancePrice(miles - EIGHT_MILES);
+            total += longDistancePrice(miles);
         }
         return total;
     }
@@ -44,6 +44,6 @@ public class TaxiMeter {
     }
 
     private float longDistancePrice(int miles) {
-        return miles * LONG_DISTANCE_PRICE_PER_MILES;
+        return (miles - EIGHT_MILES) * LONG_DISTANCE_PRICE_PER_MILES;
     }
 }
