@@ -12,8 +12,7 @@ public class TaxiMeter {
     private static final float LONG_DISTANCE_PRICE_PER_MILES = 0.5f;
 
     public Integer charge(int miles, int minutes) {
-        float total = distancePrice(miles);
-        total += waitingPrice(minutes);
+        float total = distancePrice(miles) + waitingPrice(minutes);
         return round(total);
     }
 
