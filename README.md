@@ -26,7 +26,7 @@
 
 名词:
 出租车计价器  taxi meter
-公里数 mileage
+距离 distance
 等待时间 waiting time
 价格 price
 起步价 starting price
