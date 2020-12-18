@@ -34,7 +34,7 @@ public class TaxiMeter {
     }
 
     private float extraMilesPrice(int miles) {
-        if (miles > 0) {
+        if (miles > TWO_MILES) {
             return (miles - TWO_MILES) * PRICE_PER_MILES;
         } else {
             return 0;
