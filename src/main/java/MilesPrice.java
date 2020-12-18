@@ -6,7 +6,10 @@ public class MilesPrice {
     private static final int STARTING_PRICE = 6;
     private static final int STARTING_PRICE_MILES = 2;
     private static final int EIGHT_MILES = 8;
+    private static final BigDecimal LONG_MILES_PRICE_RATE = valueOf(0.5d);
+    private static final BigDecimal PRICE_PER_MILES = valueOf(0.8);
     private TotalPrice totalPrice;
+
 
     public MilesPrice(TotalPrice totalPrice) {
         this.totalPrice = totalPrice;
@@ -27,13 +30,12 @@ public class MilesPrice {
         return valueOf(STARTING_PRICE);
     }
 
-    private BigDecimal longDistancePrice(int beyondEightMiles1) {
-        return valueOf(beyondEightMiles1).multiply(valueOf(0.5d));
+    private BigDecimal longDistancePrice(int beyondEightMiles) {
+        return valueOf(beyondEightMiles).multiply(LONG_MILES_PRICE_RATE);
     }
 
-    private BigDecimal pricePerMiles(int beyondTwoMiles1) {
-        BigDecimal pricePerMiles = valueOf(0.8);
-        return valueOf(beyondTwoMiles1).multiply(pricePerMiles);
+    private BigDecimal pricePerMiles(int beyondTwoMiles) {
+        return valueOf(beyondTwoMiles).multiply(PRICE_PER_MILES);
     }
 
 }
