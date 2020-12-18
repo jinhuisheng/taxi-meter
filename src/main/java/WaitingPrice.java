@@ -3,6 +3,7 @@ import java.math.BigDecimal;
 import static java.math.BigDecimal.valueOf;
 
 public class WaitingPrice {
+    private static final BigDecimal WAITING_PRICE_RATE = valueOf(0.25d);
     private TotalPrice totalPrice;
 
     public WaitingPrice(TotalPrice totalPrice) {
@@ -15,7 +16,7 @@ public class WaitingPrice {
     }
 
     private BigDecimal waitingPrice(int minutes) {
-        return valueOf(minutes).multiply(valueOf(0.25d));
+        return valueOf(minutes).multiply(WAITING_PRICE_RATE);
     }
 
 }
