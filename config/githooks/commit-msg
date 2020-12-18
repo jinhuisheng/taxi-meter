@@ -11,7 +11,7 @@ yellow='\033[0;33m'
 blue='\033[0;34m'
 NC='\033[0m' # No colors
 
-
+printf $1
 if ! [[ $(cat $1) =~ ^(chore|docs|feat|fix|merge|refactor|style|test|ci|revert:)|(Merge)|(empty message) ]]; then
   printf "Please use semantic commit messages:\n"
   printf "feat: add hat wobble\n"
