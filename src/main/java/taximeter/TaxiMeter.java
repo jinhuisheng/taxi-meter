@@ -22,7 +22,14 @@ public class TaxiMeter {
         if (miles > EIGHT_MILES) {
             total += longDistancePrice(miles - EIGHT_MILES);
         }
+        if (minutes > 0) {
+            total += waitingPrice(minutes);
+        }
         return round(total);
+    }
+
+    private float waitingPrice(int minutes) {
+        return minutes * 0.25f;
     }
 
     private float longDistancePrice(int miles) {
