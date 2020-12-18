@@ -8,13 +8,15 @@ public class TaxiMeter {
     private static final float PRICE_PER_MILES = 0.8f;
 
     public Integer charge(int miles, int minutes) {
+        float total = 0;
         if (miles == 10) {
             return 13;
         }
         if (miles <= 2) {
             return STARTING_PRICE;
+        } else {
+            float extraMilesPrice = (miles - 2) * PRICE_PER_MILES;
+            return round(STARTING_PRICE + extraMilesPrice);
         }
-        float extraMilesPrice = (miles - 2) * PRICE_PER_MILES;
-        return round(STARTING_PRICE + extraMilesPrice);
     }
 }
