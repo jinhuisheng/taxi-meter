@@ -18,7 +18,6 @@ public class TaxiMeter {
     }
 
     private float distancePrice(int miles) {
-        float total = 0;
         return startingPrice() + extraMilesPrice(miles) + longDistancePrice(miles);
     }
 
