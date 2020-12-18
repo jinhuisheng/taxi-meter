@@ -12,27 +12,27 @@ blue='\033[0;34m'
 NC='\033[0m' # No colors
 
 
-if ! [[ $(cat $1) =~ ^((chore|docs|feat|fix|merge|refactor|style|test|ci|revert):)|(Merge) ]]; then
+if ! [[ $(cat $1) =~ ^(chore|docs|feat|fix|merge|refactor|style|test|ci|revert:)|(Merge) ]]; then
 #  printf "${red}Please use semantic commit messages:\n"
-#  printf "${yellow}feat(scope): ${blue}add hat wobble\n"
+#  printf "${yellow}feat: ${blue}add hat wobble\n"
 #  printf "${yellow}^--^${blue}  ^------------^ ]-> Summary in present tense.${yellow}\n"
 #  printf "|\n"
 #  printf "+---> Type: chore, docs, feat, fix, merge, refactor, style, test.\n${NC}"
   printf "Please use semantic commit messages:\n"
-  printf "feat(scope|Merge): add hat wobble\n"
+  printf "feat: add hat wobble\n"
   printf "^----------------^  ^------------^ ]-> Summary in present tense.\n"
   printf "|\n"
   printf "+---> Type: chore, docs, feat, fix, merge, refactor, style, test.\n"
-  printf "chore(scope): (updating grunt tasks etc; no production code change)\n"
-  printf "docs(scope): (changes to the documentation)\n"
-  printf "feat(scope): (new feature for the user, not a new feature for build script)\n"
-  printf "fix(scope): (bug fix for the user, not a fix to a build script)\n"
-  printf "merge(scope): (merge conflict)\n"
-  printf "refactor(scope): (refactoring production code, eg. renaming a variable)\n"
-  printf "style(scope): (formatting, missing semi colons, etc; no production code change)\n"
-  printf "test(scope): (adding missing tests, refactoring tests; no production code change)\n"
-  printf "ci(scope): (Update Jenkinsfile)\n"
-  printf "revert(scope): (revert xxx)\n"
+  printf "chore: (updating grunt tasks etc; no production code change)\n"
+  printf "docs: (changes to the documentation)\n"
+  printf "feat: (new feature for the user, not a new feature for build script)\n"
+  printf "fix: (bug fix for the user, not a fix to a build script)\n"
+  printf "merge: (merge conflict)\n"
+  printf "refactor: (refactoring production code, eg. renaming a variable)\n"
+  printf "style: (formatting, missing semi colons, etc; no production code change)\n"
+  printf "test: (adding missing tests, refactoring tests; no production code change)\n"
+  printf "ci: (Update Jenkinsfile)\n"
+  printf "revert: (revert xxx)\n"
   exit 1
 fi
 
