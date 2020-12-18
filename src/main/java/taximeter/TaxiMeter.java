@@ -8,6 +8,8 @@ public class TaxiMeter {
     private static final float PRICE_PER_MILES = 0.8f;
     private static final int TWO_MILES = 2;
     private static final int EIGHT_MILES = 8;
+    private static final float WAITING_PRICE_PER_MINUTE = 0.25f;
+    private static final float LONG_DISTANCE_PRICE_PER_MILES = 0.5f;
 
     public Integer charge(int miles, int minutes) {
         float total = distancePrice(miles);
@@ -36,10 +38,10 @@ public class TaxiMeter {
     }
 
     private float waitingPrice(int minutes) {
-        return minutes * 0.25f;
+        return minutes * WAITING_PRICE_PER_MINUTE;
     }
 
     private float longDistancePrice(int miles) {
-        return miles * 0.5f;
+        return miles * LONG_DISTANCE_PRICE_PER_MILES;
     }
 }
