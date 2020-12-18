@@ -2,9 +2,9 @@ package taximeter;
 
 public class TaxiMeter {
     public Integer charge(int miles, int minutes) {
-        if (miles == 3) {
-            return 7;
+        if (miles <= 2) {
+            return 6;
         }
-        return 6;
+        return 7;
     }
 }
