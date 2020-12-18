@@ -10,6 +10,19 @@ public class TaxiMeter {
     private static final int EIGHT_MILES = 8;
 
     public Integer charge(int miles, int minutes) {
+        float total = distancePrice(miles);
+        total += waitingPrice(minutes, total);
+        return round(total);
+    }
+
+    private float waitingPrice(int minutes, float total) {
+        if (minutes > 0) {
+            return waitingPrice(minutes);
+        }
+        return 0;
+    }
+
+    private float distancePrice(int miles) {
         float total = 0;
         total += STARTING_PRICE;
         if (miles > TWO_MILES) {
@@ -18,10 +31,7 @@ public class TaxiMeter {
         if (miles > EIGHT_MILES) {
             total += longDistancePrice(miles - EIGHT_MILES);
         }
-        if (minutes > 0) {
-            total += waitingPrice(minutes);
-        }
-        return round(total);
+        return total;
     }
 
     private float extraMilesPrice(int miles) {
