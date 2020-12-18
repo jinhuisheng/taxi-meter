@@ -16,7 +16,6 @@ public class TaxiMeter {
         }
         if (miles == 10) {
             total += longDistancePrice(2);
-            return 13;
         }
         return round(total);
     }
