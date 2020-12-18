@@ -21,6 +21,6 @@ public class TaxiMeter {
     }
 
     private float longDistancePrice(int miles) {
-        return 2 * 0.5f;
+        return miles * 0.5f;
     }
 }
