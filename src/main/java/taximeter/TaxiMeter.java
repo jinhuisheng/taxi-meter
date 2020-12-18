@@ -10,9 +10,7 @@ public class TaxiMeter {
     public Integer charge(int miles, int minutes) {
         float total = 0;
         total += STARTING_PRICE;
-        if (miles <= 2) {
-        }
-        if (miles <= 8 && miles > 2) {
+        if (miles > 2 && miles <= 8) {
             float extraMilesPrice = (miles - 2) * PRICE_PER_MILES;
             total += extraMilesPrice;
         }
