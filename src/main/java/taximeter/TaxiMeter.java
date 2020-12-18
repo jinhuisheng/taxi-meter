@@ -7,7 +7,7 @@ public class TaxiMeter {
         if (miles <= 2) {
             return 6;
         }
-        float extraMilesPrice = 1 * 0.5f;
+        float extraMilesPrice = 1 * 0.8f;
         return round(6 + extraMilesPrice);
     }
 }
