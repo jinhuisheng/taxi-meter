@@ -18,7 +18,7 @@ public class TaxiMeter {
         } else {
             float extraMilesPrice = (miles - 2) * PRICE_PER_MILES;
             total += extraMilesPrice;
-            return round(STARTING_PRICE + extraMilesPrice);
+            return round(total);
         }
     }
 }
