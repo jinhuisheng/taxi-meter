@@ -15,8 +15,13 @@ public class TaxiMeter {
             total += extraMilesPrice;
         }
         if (miles == 10) {
+            total += longDistancePrice(2);
             return 13;
         }
         return round(total);
+    }
+
+    private float longDistancePrice(int miles) {
+        return 2 * 0.5f;
     }
 }
