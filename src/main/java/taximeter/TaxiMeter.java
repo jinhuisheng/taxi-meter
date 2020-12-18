@@ -14,7 +14,7 @@ public class TaxiMeter {
             float extraMilesPrice = (miles - 2) * PRICE_PER_MILES;
             total += extraMilesPrice;
         }
-        if (miles == 10) {
+        if (miles > 8) {
             total += longDistancePrice(miles - 8);
         }
         return round(total);
