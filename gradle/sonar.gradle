@@ -1,4 +1,4 @@
-file("gradle/gradle.properties").withReader {
+file("gradle/sonar.properties").withReader {
     Properties sonarProperties = new Properties()
     sonarProperties.load(it)
 
