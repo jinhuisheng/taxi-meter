@@ -28,6 +28,7 @@ if ! [[ $(cat $1) =~ ^(chore|docs|feat|fix|merge|refactor|style|test|ci|revert:)
   printf "test: (adding missing tests, refactoring tests; no production code change)\n"
   printf "ci: (Update Jenkinsfile)\n"
   printf "revert: (revert xxx)\n"
+  printf "empty message if you code kata \n"
   exit 1
 fi
 
