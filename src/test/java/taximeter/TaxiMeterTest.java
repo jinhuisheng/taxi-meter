@@ -11,4 +11,12 @@ public class TaxiMeterTest {
         Integer charge = taxiMeter.charge(1, 0);
         assertThat(charge).isEqualTo(6);
     }
+
+    @Test
+    void should_charge_7_yuan_given_3_miles_and_0_minute() {
+        TaxiMeter taxiMeter = new TaxiMeter();
+        Integer charge = taxiMeter.charge(3, 0);
+        assertThat(charge).isEqualTo(7);
+    }
+
 }
